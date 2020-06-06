@@ -10,8 +10,7 @@ import numpy as np
 from json import dumps
 from bottle import get, post, run, request, static_file
 
-#replace books.csv with glitch asset link
-data = pd.read_csv("books.csv", encoding="ISO-8859-1")
+data = pd.read_csv("https://cdn.glitch.com/45148140-3280-4007-9162-61f0641f4f34%2Fbooks.csv?v=1591454486698", encoding="ISO-8859-1")
 N = 16559 #number of books
 
 def lcs(a, b):
@@ -106,4 +105,4 @@ def find():
 def index():
     return static_file('index.html', '.')
 
-run(host='localhost', port=8080, debug=True)
+run(port=3000)
