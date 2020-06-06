@@ -87,15 +87,16 @@ def find_relevant(terms):
     for i in range(N):
         result.append((weight[i], i))
     result.sort(reverse=True)
-    result = result[0:min(N, 10)]
-    #sort top 10 with LCS
+    result = result[0:min(N, 20)]
+    #sort top 20 with LCS
     lcs_values = []
     for x in result:
         lcs_values.append(lcs(terms, re.split(r'\W+', unidecode(data["desc"][x[1]]).lower())))
-    for i in range(min(N, 10)):
+    print(lcs_values)
+    for i in range(min(N, 20)):
         result[i] = (lcs_values[i], result[i][1])
     result = sorted(result, key=lambda x: x[0], reverse=True)
-    for i in range(min(N, 10)):
+    for i in range(min(N, 20)):
       result[i] = data["name"][result[i][1]]
     return result
 
