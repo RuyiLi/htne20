@@ -117,3 +117,10 @@ def index():
     return static_file('index.html', '.')
 
 run(port=3000)
+
+"""
+while True:
+    x = input("Input: )
+    y = find_relevant(x)
+    print(y)
+"""
