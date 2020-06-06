@@ -26,6 +26,8 @@ def lcs(a, b):
                 dp[i][j] = max(dp[i][j-1], dp[i-1][j])
     return dp[len(a)][len(b)]
 
+black_list = [False]*N #collection of book numbers where the summary is too short for tf_idf
+
 #precompute term frequencies to lower query time
 #note that the precompute time is like 4 min
 frequency_list = [] #list of dictionaries, each contains frequency of each word in desc O(NlogN)
@@ -33,6 +35,8 @@ for i in range(N):
     if(i%100 == 0):
         print(i)
     temp_list = re.split(r'\W+', data["desc"][i].lower())
+    if(len(temp_list) < 300):
+        black_list[i] = True
     temp_dict = {}
     M = len(temp_list)
     for j in range(M):
@@ -51,7 +55,7 @@ for i in range(N):
 def find_relevant(terms):
     weight = []
     for i in range(N):
-        weight.append(0)
+        weight.append(-100000000) #huge negative weight
     for term in terms: #number of terms is too small to count
         term_frequency = 0
         #O(NlogN)
@@ -62,6 +66,10 @@ def find_relevant(terms):
         #debug
         #print(idf, " ", term_frequency)
         for i in range(N): #iterate through books
+            if black_list[i]:
+                continue
+            if weight[i] == -100000000:
+                weight[i] = 0
             book_frequency = 0
             if term in frequency_list[i]:
                 book_frequency = frequency_list[i][term]
