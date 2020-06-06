@@ -87,6 +87,8 @@ def find_relevant(terms):
     for i in range(min(N, 10)):
         result[i] = (lcs_values[i], result[i][1])
     result = sorted(result, key=lambda x: x[0], reverse=True)
+    for i in range(min(N, 10)):
+      result[i] = data["name"][result[i][1]]
     return result
 
     #debug
