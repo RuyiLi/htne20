@@ -3,6 +3,7 @@ import re
 from unidecode import unidecode
 from typing import List, Dict
 from math import log
+from json import dumps
 import pandas as pd
 import numpy as np
 import os
