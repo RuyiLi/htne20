@@ -5,7 +5,9 @@
 Sometimes, with a vague description, it is difficult to successfully find the title of an older book on Google. This is where Book.it! comes in. With a couple optimized algorithms and a database of over 15,000 titles that go way back into the 1800s, Book.it can find that one old classic you simply cannot find with your Google search.
 
 ## Method
-We precompute the frequency of each word in the plot summaries of each title and stor the information in a list of dictionaries. We serialize this variable with [pickle](https://docs.python.org/3/library/pickle.html). For each query,
+First, we load in our dataset with [pandas](https://pandas.pydata.org/). We follow by precomputing the frequency of each word in the plot summaries of each title and stor the information in a list of dictionaries. We serialize this variable with [pickle](https://docs.python.org/3/library/pickle.html) so that this precomputation (quadratic time complexity) is only run once. 
+
+For each query,
 
 1. The terms are split into individual words.
 2. For each title, the [tf-idf](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) value of each term is calculated.
