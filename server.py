@@ -129,7 +129,6 @@ def find():
     reply = find_relevant(terms)
     return dumps(reply)
 
-
 @get('/')
 def index():
     return static_file('index.html', '.')
