@@ -10,8 +10,7 @@ import numpy as np
 from json import dumps
 from bottle import get, post, run, request, static_file
 
-data = pd.read_csv("https://cdn.glitch.com/45148140-3280-4007-9162-61f0641f4f34%2Fbooks.csv?v=1591454486698", encoding="ISO-8859-1"
-#data = pd.read_csv("books.csv", encoding="ISO-8859-1"
+data = pd.read_csv("https://cdn.glitch.com/45148140-3280-4007-9162-61f0641f4f34%2Fbooks.csv?v=1591454486698", encoding="ISO-8859-1")
 N = 16559 #number of books
 
 def lcs(a, b):
@@ -33,7 +32,7 @@ black_list = [False]*N #collection of book numbers where the summary is too shor
 #note that the precompute time is like 4 min
 frequency_list = [] #list of dictionaries, each contains frequency of each word in desc O(NlogN)
 for i in range(N):
-    if(i%100 == 0):
+    if i%100 == 0:
         print(i)
     temp_list = re.split(r'\W+', data["desc"][i].lower())
     if(len(temp_list) < 300):
@@ -118,10 +117,3 @@ def index():
     return static_file('index.html', '.')
 
 run(port=3000)
-
-"""
-while True:
-    x = input("Input: )
-    y = find_relevant(x)
-    print(y)
-"""

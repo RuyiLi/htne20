@@ -1,160 +1,194 @@
-<title> Book.it! </title>
-
+<title>Book.it!</title>
+<link
+  href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap"
+  rel="stylesheet"
+/>
 <style>
-    * {
-        font-family: Rubik;
-    }
+  * {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+  }
 
-    body {
-        padding: 2rem 10rem;
-        background-color: #4287f5;
-        color: #ededed;
-        text-align: center;
-        padding-bottom: 4rem;
-    }
+  body {
+    padding: 2rem 10rem;
+    background-color: #f57342;
+    color: #ededed;
+    text-align: center;
+    padding-bottom: 4rem;
+  }
 
-    main {
-        padding: 2rem;
-        background-color: white;
-        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .2);
-        color: #181818;
-        border-radius: 1rem;
-        margin-top: 3rem;
-    }
+  main {
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+    color: #181818;
+    /*         border-radius: 1rem; */
+    margin-top: 3rem;
+  }
 
-    input {
-        outline: none;
-        border: none;
-        width: 50%;
-        padding: 1rem;
-        height: 3rem;
-        font-size: 1.3rem;
-        border-radius: 2rem;
-        background-color: #eee;
-        transition: .2s;
-    }
+  input {
+    outline: none;
+    border: none;
+    width: 50%;
+    padding: 1rem;
+    height: 3rem;
+    font-size: 1.3rem;
+    /*         border-radius: 2rem; */
+    background-color: #eee;
+    transition: 0.2s;
+  }
 
-    input:hover {
-        box-shadow: 0 0 2px 0 black;
-    }
+  input:hover,
+  button:hover {
+    box-shadow: -3px 3px 0 0 var(--grey);
+    transform: translate(3px, -3px);
+  }
 
-    button {
-        margin-top: 1rem;
-        outline: none;
-        border: none;
-        padding: .6rem 1.3rem;
-        background-color: #ededed;
-        cursor: pointer;
-        transition: .2s;
-        font-size: 1.3rem;
-        border-radius: .3rem;
-    }
+  button:active {
+    box-shadow: none;
+    transform: translate(0, 0);
+  }
 
-    button:hover {
-        background-color: #0dff96;
-    }
+  button {
+    margin-top: 1rem;
+    outline: none;
+    border: none;
+    padding: 0.6rem 1.3rem;
+    background-color: #ededed;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 1.3rem;
+    /*         border-radius: .3rem; */
+  }
 
-    header {
-        margin-top: 1rem;
-    }
+  button:hover {
+    background-color: #0D3B66;
+    color: #ededed;
+  }
 
-    h2 {
-        font-size: 3rem;
-    }
+  header {
+    margin-top: 1rem;
+  }
 
-    h2, h3 {
-        font-family: Poppins Light !important;
-        margin: 0;
-    }
+  h2 {
+    font-size: 3.5rem;
+  }
 
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        margin-top: 2rem;
-    }
+  h1:not(#matches) {
+    margin-top: 0;
+    font-size: 1.9rem;
+  }
 
-    li {
-        font-size: 1.3rem;
-        margin: 1.3rem 0;
-    }
+  h3 {
+    font-size: 1.3rem;
+  }
 
-    :root {
-        --black: #1b1918;
-        --dark: #222222;
-        --blue: #8487FF;
-        --grey: #c5c8c6;
-        --reddish: #d75f87;
-        --orange: #cb8700;
-        --white: #ededed;
-        --lblue: #87AFD7;
-    }
+  h2,
+  h3 {
+    /*         font-family: Poppins Light !important; */
+    margin: 0;
+  }
 
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 2rem;
+  }
 
-    ::-webkit-scrollbar-thumb {
-        background: #eee;
-    }
+  li {
+    font-size: 1.3rem;
+    margin: 1.3rem 0;
+  }
 
-    ::-webkit-scrollbar-track {
-        background: transparent;
-    }
+  :root {
+    --black: #1b1918;
+    --dark: #222222;
+    --blue: #8487FF;
+    --grey: #c5c8c6;
+    --reddish: #d75f87;
+    --orange: #f57342;
+    --white: #ededed;
+    --lblue: #87AFD7;
+  }
 
-    ::-webkit-scrollbar-track:hover {
-        background: rgba(0, 0, 0, 0.2);
-    }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #eee;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-track:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
 </style>
 
 <header id="title">
-    <h2> Book.it! </h2>
-    <h3> Can't find that book? Describe it! </h3>
+  <h2>Book.it!</h2>
+  <h3>
+    Find the name of that book that was on the tip of your tongue, from just a
+    short description.
+  </h3>
 </header>
 
 <main id="main">
-    <h1> Pigs establish communism while... </h1>
-    <input id="terms" type="text" placeholder="dating sim expert and goddesses" />
-    <br>
-    <button id="submit"> Book.it! </button>
+  <h1>What's that book where...</h1>
+  <input
+    id="terms"
+    type="text"
+    placeholder="Pigs turn communist and lord over other animals..."
+  />
+  <br />
+  <button id="submit">Book it!</button>
 </main>
 
-<h1 id="matches" style="display:none;"> Matches: </h1>
+<h1 id="matches" style="display:none;">Matches:</h1>
 <ul id="results"></ul>
 
 <script type="text/javascript">
-    const $ = document.getElementById.bind(document);
+  const $ = document.getElementById.bind(document);
 
-    const inp = $('terms');
-    const btn = $('submit');
-    const results = $('results');
-    const t = $('title');
-    let rem = false;
+  const inp = $("terms");
+  const btn = $("submit");
+  const results = $("results");
+  const t = $("title");
+  let rem = false;
 
-    function addResult (content) {
-        const li = document.createElement('li');
-        li.innerText = content;
-        results.append(li);
+  function addResult(content) {
+    const li = document.createElement("li");
+    li.innerText = content;
+    results.append(li);
+  }
+
+  async function bookIt() {
+    if (!rem) {
+      t.parentNode.removeChild(t);
+      $("main").style.marginTop = "2rem";
+      $("matches").style.display = "";
+      rem = true;
     }
 
-    btn.addEventListener('click', async function () {
-        if (!rem) {
-            t.parentNode.removeChild(t);
-            $('main').style.marginTop = '2rem';
-            $('matches').style.display = '';
-            rem = true;
-        }
-
-        const terms = inp.value;
-        console.log(terms);
-        const res = await fetch('/find', {
-            method: 'POST',
-            body: terms,
-        });
-        const body = await res.json()
-        console.log(body);
-        const found = body.map(c => c.title);
-        results.innerHTML = '';
-        found.forEach(addResult);
+    const terms = inp.value;
+    console.log(terms);
+    const res = await fetch("/find", {
+      method: "POST",
+      body: terms
     });
+    const body = await res.json();
+    console.log(body);
+    const found = body;
+    results.innerHTML = "";
+    found.forEach(addResult);
+  }
+
+  btn.addEventListener("click", bookIt);
+  inp.addEventListener("keyup", function(evt) {
+    if (evt.keyCode === 13) bookIt();
+  });
 </script>
