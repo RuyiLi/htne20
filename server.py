@@ -5,6 +5,7 @@ from typing import List, Dict
 from math import log
 import pandas as pd
 import numpy as np
+import os
 
 #server imports
 from json import dumps
@@ -116,4 +117,4 @@ def find():
 def index():
     return static_file('index.html', '.')
 
-run(port=3000)
+run(port = int(os.environ['PORT']), host = '0.0.0.0')
